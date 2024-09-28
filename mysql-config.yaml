@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+data:
+  master.cnf: |
+    [mysqld]
+    character-set-server=utf8mb4
+    collation-server=utf8mb4_unicode_ci
+    log-bin=mysql-bin
+    gtid_mode=ON
+    enforce_gtid_consistency=ON
+  slave.cnf: |
+    [mysqld]
+    character-set-server=utf8mb4
+    collation-server=utf8mb4_unicode_ci
+    read-only=on
+    super_read_only=on
+    gtid_mode=ON
+    enforce_gtid_consistency=ON
